@@ -3,8 +3,6 @@ const searchElement = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 
-// messageOne.textContent = 'From JS'
-
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -12,7 +10,7 @@ weatherForm.addEventListener('submit', (e) => {
     
     setMessage('loading...', '')
 
-    fetch(`http://localhost:3000/weather?address=${encodeURIComponent(address)}`).then((response) => {
+    fetch(`/weather?address=${encodeURIComponent(address)}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 return setMessage(data.error, '')
