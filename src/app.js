@@ -43,12 +43,12 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', ({ query } = {}, res) => {
-    if (!query.address) {
+    if (!(query.address || query.coords)) {
         return res.send({
-            error: 'You must provide an address.'
+            error: 'You must provide an address or coordinates.'
         })
     }
-    geocode(query.address, (error, { latitude, longitude, location } = {}) => {
+    geocode({ address: query.address, coords: query.coords }, (error, { latitude, longitude, location } = {}) => {
         if (error) {
             return res.send({ error })
         }
@@ -60,6 +60,7 @@ app.get('/weather', ({ query } = {}, res) => {
                 location,
                 forecast: forecastData,
                 address: query.address,
+                coords: query.coords,
                 icon
             })
         })

@@ -14,6 +14,10 @@ body {
     flex-grow: 1;
 }
 
+#search {
+    display: flex;
+}
+
 footer {
     color: #888888;
     border-top: 1px solid #eeeeee;
@@ -42,7 +46,7 @@ header a {
 }
 
 #forecast-icon {
-    border-radius: 15px;
+    border-radius: 50%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -57,4 +61,5 @@ button {
     background: #888888;
     color: #fcfcfc;
     padding: 8px;
+    margin-right: 4px;
 }
